@@ -1,43 +1,81 @@
 .blue, .green, .red, .yellow {
-  background-color: blue; 
+  position: relative;
   border-radius: 12px;
   color: white;
   cursor: pointer;
   font-weight: bold;
-  padding: 15px 30px; 
+  padding: 0px;
   transition: 200ms;
-  width: 100%;
+  width: 11vw;
+  height: 11vh;
   box-sizing: border-box;
   border: 0;
-  font-size: 16px;
+  font-size: 14px;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  display: inline-block;
+  animation: none;
+}
+.blue:after, .green:after, .red:after, .yellow:after {
+  display: block;
+  position: absolute;
+  padding-top: 200%;
+  padding-left: 200%;
+  margin-left: -20px!important;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 0.8s;
 }
 
+.blue:active:after, .green:active:after, .red:active:after, .yellow:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s;
+}
 
-.blue:disabled, .green:disabled, .red:disabled, .yellow:disabled {
-  filter: saturate(0.2) opacity(0.5);
-  -webkit-filter: saturate(0.2) opacity(0.5);
-  cursor: not-allowed;
+.blue:active, .green:active, .red:active, .yellow:active {
+  animation: click-animation 200ms ease-in-out;
+}
+
+@keyframes click-animation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.answers-container {
+  display: flex; 
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.blue {
+  background-color: #1463e2;
 }
 
 .green {
-  background-color: green;
+  background-color: #11c44d;
 }
 
 .red {
-  background-color: red;
+  background-color: #f93f2a;
 }
 
 .yellow {
-  background-color: yellow;
+  background-color: #eff243;
 }
 
 .blue .green .yellow .red {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
 }
 

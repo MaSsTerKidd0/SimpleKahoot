@@ -17,7 +17,7 @@ export default function Answers({ questionType, numQuestions, questionId }) {
 
   return (
     <div>
-      <div>
+      <div className='answers-container'>
         {answers.map((answer, index) => (
           <button key={index} className={answer.color}>
             {answer.text}
