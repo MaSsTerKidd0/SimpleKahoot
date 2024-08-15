@@ -14,12 +14,14 @@ export default function Answers({ questionType, numQuestions, questionId }) {
     text: `${index + 1}`,
     color: answerColors[index % answerColors.length],
   }));
-
+  const handleAnswerClick = (answer) => {
+    alert(`${answer.text} clicked`);
+  }
   return (
     <div>
       <div className='answers-container'>
         {answers.map((answer, index) => (
-          <button key={index} className={answer.color}>
+          <button key={index} className={answer.color} onClick = { () => handleAnswerClick(answer) }>
             {answer.text}
           </button>
         ))}
